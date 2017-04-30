@@ -1,0 +1,26 @@
+<random-text-generator></random-text-generator>
+<div align="center">
+    <textarea rows="5" cols="70" name="myphrase" placeholder="Type phrase above... ">
+    </textarea>
+</div>
+
+
+
+<p align="center">
+    <button (click)="showData()">{{showResultsFlag ? "Clear Results!" : "Show Results!"}}</button>
+</p>
+
+<div align="center" *ngIf="showResultsFlag">
+    Your username:<input type="text" size="4" [(ngModel)]="myUser.username">
+    <button (click)="sendData()">Send Results!</button>
+</div>
+
+
+<!--Results of keystrokes...-->
+<div *ngIf="showResultsFlag">
+    <strong>Results in ms (latency from each keystroke to the next):</strong>
+    <br><br> {{myKeystrokesData.key_codes}}
+    <br><br> {{myKeystrokesData.key_timeDiffs}}
+    <br><br>ASCII CODES:
+    <br> {{myKeystrokesData.key_ascii}}
+</div>
